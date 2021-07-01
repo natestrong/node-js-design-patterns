@@ -1,0 +1,11 @@
+# Project exclude paths
+/6-streams/gzip.js
+/6-streams/gzip.js.map
+/6-streams/gzip-receive.js
+/6-streams/gzip-receive.js.map
+/express/expressServer.js
+/express/expressServer.js.map
+/node_modules/
+/lotOfText.txt
+/.idea/
+/lotOfText.txt.stream.gz
