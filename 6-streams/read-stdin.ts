@@ -12,6 +12,7 @@
 //     })
 //     .on('end', () => console.log('End of stream'));
 
+
 // Flowing mode
 process.stdin
     .on('data', (chunk) => {
