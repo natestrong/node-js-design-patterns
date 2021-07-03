@@ -1,6 +1,6 @@
 import {createReadStream} from 'fs';
-import parse from 'csv-parse';
 import {Transform} from "stream";
+import parse = require("csv-parse");
 
 
 export class FilterByCountry extends Transform {

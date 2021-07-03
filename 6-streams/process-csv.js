@@ -17,8 +17,8 @@ var __extends = (this && this.__extends) || (function () {
 exports.__esModule = true;
 exports.SumProfit = exports.FilterByCountry = void 0;
 var fs_1 = require("fs");
-var csv_parse_1 = require("csv-parse");
 var stream_1 = require("stream");
+var parse = require("csv-parse");
 var FilterByCountry = /** @class */ (function (_super) {
     __extends(FilterByCountry, _super);
     function FilterByCountry(country, options) {
@@ -55,7 +55,7 @@ var SumProfit = /** @class */ (function (_super) {
     return SumProfit;
 }(stream_1.Transform));
 exports.SumProfit = SumProfit;
-var csvParser = csv_parse_1["default"]({ columns: true });
+var csvParser = parse({ columns: true });
 fs_1.createReadStream('data.csv') // (1)
     .pipe(csvParser) // (2)
     .pipe(new FilterByCountry('Italy')) // (3)
