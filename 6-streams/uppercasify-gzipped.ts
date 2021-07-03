@@ -13,6 +13,7 @@ pipeline(
     uppercasify,
     createGzip(),
     process.stdout,
+
     (err) => {
         if (err) {
             console.error(err);
