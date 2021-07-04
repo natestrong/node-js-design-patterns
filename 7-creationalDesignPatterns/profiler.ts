@@ -1,6 +1,9 @@
+interface IProfiler {
+    start: Function;
+    end: Function;
+}
 
-
-class Profiler {
+class Profiler implements IProfiler {
     private readonly label: string;
     private lastTime: [number, number];
 
@@ -20,3 +23,16 @@ class Profiler {
 }
 
 
+const noopProfiler: IProfiler = {
+    start() {
+    },
+    end() {
+    },
+};
+
+export function createProfiler(label) {
+    if (process.env.NODE_ENV === "production") {
+        return noopProfiler;
+    }
+    return new Profiler(label);
+}

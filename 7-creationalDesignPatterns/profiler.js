@@ -1,3 +1,6 @@
+"use strict";
+exports.__esModule = true;
+exports.createProfiler = void 0;
 var Profiler = /** @class */ (function () {
     function Profiler(label) {
         this.label = label;
@@ -12,4 +15,17 @@ var Profiler = /** @class */ (function () {
     };
     return Profiler;
 }());
+var noopProfiler = {
+    start: function () {
+    },
+    end: function () {
+    },
+};
+function createProfiler(label) {
+    if (process.env.NODE_ENV === "production") {
+        return noopProfiler;
+    }
+    return new Profiler(label);
+}
+exports.createProfiler = createProfiler;
 //# sourceMappingURL=profiler.js.map
