@@ -1,4 +1,4 @@
-class StackCalculator {
+export class StackCalculator {
     private stack: number[];
 
     constructor() {
@@ -45,6 +45,4 @@ calculator.putValue(2);
 console.log(calculator.multiply()); // 3*2 = 6
 calculator.putValue(2);
 console.log(calculator.multiply()); // 6*2 = 12
-
-
 

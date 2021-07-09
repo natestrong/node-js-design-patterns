@@ -1,3 +1,6 @@
+"use strict";
+exports.__esModule = true;
+exports.StackCalculator = void 0;
 var StackCalculator = /** @class */ (function () {
     function StackCalculator() {
         this.stack = [];
@@ -30,6 +33,7 @@ var StackCalculator = /** @class */ (function () {
     };
     return StackCalculator;
 }());
+exports.StackCalculator = StackCalculator;
 var calculator = new StackCalculator();
 calculator.putValue(3);
 calculator.putValue(2);
