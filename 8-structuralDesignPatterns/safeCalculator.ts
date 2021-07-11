@@ -40,6 +40,7 @@ class SafeCalculator {
     }
 }
 
+
 const calculator = new StackCalculator();
 const safeCalculator = new SafeCalculator(calculator);
 calculator.putValue(3);
