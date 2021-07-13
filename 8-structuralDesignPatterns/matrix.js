@@ -50,10 +50,8 @@ var matrix2x2 = new Matrix([
     ['11', '12'],
     ['21', '22']
 ]);
-var matrixIterator = matrix2x2[Symbol.iterator]();
-var matrixIteratorResult = matrixIterator.next();
-while (!matrixIteratorResult.done) {
-    console.log(matrixIteratorResult.value);
-    matrixIteratorResult = matrixIterator.next();
+for (var _i = 0, matrix2x2_1 = matrix2x2; _i < matrix2x2_1.length; _i++) {
+    var val = matrix2x2_1[_i];
+    console.log(val);
 }
 //# sourceMappingURL=matrix.js.map

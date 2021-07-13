@@ -49,10 +49,6 @@ const matrix2x2 = new Matrix([
     ['11', '12'],
     ['21', '22']
 ]);
-const matrixIterator = matrix2x2[Symbol.iterator]();
-let matrixIteratorResult = matrixIterator.next();
-while (!matrixIteratorResult.done) {
-    console.log(matrixIteratorResult.value);
-    matrixIteratorResult = matrixIterator.next();
+for (const val of matrix2x2) {
+    console.log(val);
 }
-
