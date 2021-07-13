@@ -52,3 +52,6 @@ const matrix2x2 = new Matrix([
 for (const val of matrix2x2) {
     console.log(val);
 }
+
+const flattenedMatrix = [...matrix2x2];
+console.log(flattenedMatrix);

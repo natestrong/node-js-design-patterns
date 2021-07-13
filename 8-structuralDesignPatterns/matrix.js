@@ -1,4 +1,37 @@
 "use strict";
+var __values = (this && this.__values) || function(o) {
+    var s = typeof Symbol === "function" && Symbol.iterator, m = s && o[s], i = 0;
+    if (m) return m.call(o);
+    if (o && typeof o.length === "number") return {
+        next: function () {
+            if (o && i >= o.length) o = void 0;
+            return { value: o && o[i++], done: !o };
+        }
+    };
+    throw new TypeError(s ? "Object is not iterable." : "Symbol.iterator is not defined.");
+};
+var __read = (this && this.__read) || function (o, n) {
+    var m = typeof Symbol === "function" && o[Symbol.iterator];
+    if (!m) return o;
+    var i = m.call(o), r, ar = [], e;
+    try {
+        while ((n === void 0 || n-- > 0) && !(r = i.next()).done) ar.push(r.value);
+    }
+    catch (error) { e = { error: error }; }
+    finally {
+        try {
+            if (r && !r.done && (m = i["return"])) m.call(i);
+        }
+        finally { if (e) throw e.error; }
+    }
+    return ar;
+};
+var __spreadArray = (this && this.__spreadArray) || function (to, from) {
+    for (var i = 0, il = from.length, j = to.length; i < il; i++, j++)
+        to[j] = from[i];
+    return to;
+};
+var e_1, _a;
 exports.__esModule = true;
 exports.Matrix = void 0;
 /**
@@ -50,8 +83,19 @@ var matrix2x2 = new Matrix([
     ['11', '12'],
     ['21', '22']
 ]);
-for (var _i = 0, matrix2x2_1 = matrix2x2; _i < matrix2x2_1.length; _i++) {
-    var val = matrix2x2_1[_i];
-    console.log(val);
+try {
+    for (var matrix2x2_1 = __values(matrix2x2), matrix2x2_1_1 = matrix2x2_1.next(); !matrix2x2_1_1.done; matrix2x2_1_1 = matrix2x2_1.next()) {
+        var val = matrix2x2_1_1.value;
+        console.log(val);
+    }
 }
+catch (e_1_1) { e_1 = { error: e_1_1 }; }
+finally {
+    try {
+        if (matrix2x2_1_1 && !matrix2x2_1_1.done && (_a = matrix2x2_1["return"])) _a.call(matrix2x2_1);
+    }
+    finally { if (e_1) throw e_1.error; }
+}
+var flattenedMatrix = __spreadArray([], __read(matrix2x2));
+console.log(flattenedMatrix);
 //# sourceMappingURL=matrix.js.map
