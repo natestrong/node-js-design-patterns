@@ -96,6 +96,10 @@ finally {
     }
     finally { if (e_1) throw e_1.error; }
 }
+// spread operator
 var flattenedMatrix = __spreadArray([], __read(matrix2x2));
 console.log(flattenedMatrix);
+// deconstructing
+var _b = __read(matrix2x2, 4), oneOne = _b[0], oneTwo = _b[1], twoOne = _b[2], twoTwo = _b[3];
+console.log(oneOne, oneTwo, twoOne, twoTwo);
 //# sourceMappingURL=matrix.js.map

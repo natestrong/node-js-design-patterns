@@ -53,5 +53,12 @@ for (const val of matrix2x2) {
     console.log(val);
 }
 
+// spread operator
 const flattenedMatrix = [...matrix2x2];
 console.log(flattenedMatrix);
+
+// deconstructing
+const [oneOne, oneTwo, twoOne, twoTwo] = matrix2x2
+console.log(oneOne, oneTwo, twoOne, twoTwo)
+
+
