@@ -35,12 +35,35 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
+var __await = (this && this.__await) || function (v) { return this instanceof __await ? (this.v = v, this) : new __await(v); }
+var __asyncGenerator = (this && this.__asyncGenerator) || function (thisArg, _arguments, generator) {
+    if (!Symbol.asyncIterator) throw new TypeError("Symbol.asyncIterator is not defined.");
+    var g = generator.apply(thisArg, _arguments || []), i, q = [];
+    return i = {}, verb("next"), verb("throw"), verb("return"), i[Symbol.asyncIterator] = function () { return this; }, i;
+    function verb(n) { if (g[n]) i[n] = function (v) { return new Promise(function (a, b) { q.push([n, v, a, b]) > 1 || resume(n, v); }); }; }
+    function resume(n, v) { try { step(g[n](v)); } catch (e) { settle(q[0][3], e); } }
+    function step(r) { r.value instanceof __await ? Promise.resolve(r.value.v).then(fulfill, reject) : settle(q[0][2], r); }
+    function fulfill(value) { resume("next", value); }
+    function reject(value) { resume("throw", value); }
+    function settle(f, v) { if (f(v), q.shift(), q.length) resume(q[0][0], q[0][1]); }
+};
 var __asyncValues = (this && this.__asyncValues) || function (o) {
     if (!Symbol.asyncIterator) throw new TypeError("Symbol.asyncIterator is not defined.");
     var m = o[Symbol.asyncIterator], i;
     return m ? m.call(o) : (o = typeof __values === "function" ? __values(o) : o[Symbol.iterator](), i = {}, verb("next"), verb("throw"), verb("return"), i[Symbol.asyncIterator] = function () { return this; }, i);
     function verb(n) { i[n] = o[n] && function (v) { return new Promise(function (resolve, reject) { v = o[n](v), settle(resolve, reject, v.done, v.value); }); }; }
     function settle(resolve, reject, d, v) { Promise.resolve(v).then(function(v) { resolve({ value: v, done: d }); }, reject); }
+};
+var __values = (this && this.__values) || function(o) {
+    var s = typeof Symbol === "function" && Symbol.iterator, m = s && o[s], i = 0;
+    if (m) return m.call(o);
+    if (o && typeof o.length === "number") return {
+        next: function () {
+            if (o && i >= o.length) o = void 0;
+            return { value: o && o[i++], done: !o };
+        }
+    };
+    throw new TypeError(s ? "Object is not iterable." : "Symbol.iterator is not defined.");
 };
 exports.__esModule = true;
 exports.CheckUrls = void 0;
@@ -50,51 +73,64 @@ var CheckUrls = /** @class */ (function () {
         this.urls = urls;
     }
     CheckUrls.prototype[Symbol.asyncIterator] = function () {
-        var urlsIterator = this.urls[Symbol.iterator](); // (2)
-        return {
-            next: function () {
-                return __awaiter(this, void 0, void 0, function () {
-                    var iteratorResult, url, checkResult, err_1;
-                    return __generator(this, function (_a) {
-                        switch (_a.label) {
-                            case 0:
-                                iteratorResult = urlsIterator.next();
-                                if (iteratorResult.done) {
-                                    return [2 /*return*/, { done: true }];
-                                }
-                                url = iteratorResult.value;
-                                _a.label = 1;
-                            case 1:
-                                _a.trys.push([1, 3, , 4]);
-                                return [4 /*yield*/, superagent_1["default"] // (5)
-                                        .head(url)
-                                        .redirects(2)];
-                            case 2:
-                                checkResult = _a.sent();
-                                return [2 /*return*/, {
-                                        done: false,
-                                        value: url + " is up, status: " + checkResult.status
-                                    }];
-                            case 3:
-                                err_1 = _a.sent();
-                                return [2 /*return*/, {
-                                        done: false,
-                                        value: url + " is down, error: " + err_1.message
-                                    }];
-                            case 4: return [2 /*return*/];
+        return __asyncGenerator(this, arguments, function _a() {
+            var _b, _c, url, checkResult, err_1, e_1_1;
+            var e_1, _d;
+            return __generator(this, function (_e) {
+                switch (_e.label) {
+                    case 0:
+                        _e.trys.push([0, 11, 12, 13]);
+                        _b = __values(this.urls), _c = _b.next();
+                        _e.label = 1;
+                    case 1:
+                        if (!!_c.done) return [3 /*break*/, 10];
+                        url = _c.value;
+                        _e.label = 2;
+                    case 2:
+                        _e.trys.push([2, 6, , 9]);
+                        return [4 /*yield*/, __await(superagent_1["default"]
+                                .head(url)
+                                .redirects(2))];
+                    case 3:
+                        checkResult = _e.sent();
+                        return [4 /*yield*/, __await(url + " is up, status: " + checkResult.status)];
+                    case 4: return [4 /*yield*/, _e.sent()];
+                    case 5:
+                        _e.sent();
+                        return [3 /*break*/, 9];
+                    case 6:
+                        err_1 = _e.sent();
+                        return [4 /*yield*/, __await(url + " is down, error: " + err_1.message)];
+                    case 7: return [4 /*yield*/, _e.sent()];
+                    case 8:
+                        _e.sent();
+                        return [3 /*break*/, 9];
+                    case 9:
+                        _c = _b.next();
+                        return [3 /*break*/, 1];
+                    case 10: return [3 /*break*/, 13];
+                    case 11:
+                        e_1_1 = _e.sent();
+                        e_1 = { error: e_1_1 };
+                        return [3 /*break*/, 13];
+                    case 12:
+                        try {
+                            if (_c && !_c.done && (_d = _b["return"])) _d.call(_b);
                         }
-                    });
-                });
-            }
-        };
+                        finally { if (e_1) throw e_1.error; }
+                        return [7 /*endfinally*/];
+                    case 13: return [2 /*return*/];
+                }
+            });
+        });
     };
     return CheckUrls;
 }());
 exports.CheckUrls = CheckUrls;
 function main() {
-    var e_1, _a;
+    var e_2, _a;
     return __awaiter(this, void 0, void 0, function () {
-        var checkUrls, checkUrls_1, checkUrls_1_1, status_1, e_1_1;
+        var checkUrls, checkUrls_1, checkUrls_1_1, status_1, e_2_1;
         return __generator(this, function (_b) {
             switch (_b.label) {
                 case 0:
@@ -117,8 +153,8 @@ function main() {
                 case 4: return [3 /*break*/, 2];
                 case 5: return [3 /*break*/, 12];
                 case 6:
-                    e_1_1 = _b.sent();
-                    e_1 = { error: e_1_1 };
+                    e_2_1 = _b.sent();
+                    e_2 = { error: e_2_1 };
                     return [3 /*break*/, 12];
                 case 7:
                     _b.trys.push([7, , 10, 11]);
@@ -129,7 +165,7 @@ function main() {
                     _b.label = 9;
                 case 9: return [3 /*break*/, 11];
                 case 10:
-                    if (e_1) throw e_1.error;
+                    if (e_2) throw e_2.error;
                     return [7 /*endfinally*/];
                 case 11: return [7 /*endfinally*/];
                 case 12: return [2 /*return*/];
