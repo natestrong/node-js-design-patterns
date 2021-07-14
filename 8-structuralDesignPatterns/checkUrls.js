@@ -35,6 +35,13 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
+var __asyncValues = (this && this.__asyncValues) || function (o) {
+    if (!Symbol.asyncIterator) throw new TypeError("Symbol.asyncIterator is not defined.");
+    var m = o[Symbol.asyncIterator], i;
+    return m ? m.call(o) : (o = typeof __values === "function" ? __values(o) : o[Symbol.iterator](), i = {}, verb("next"), verb("throw"), verb("return"), i[Symbol.asyncIterator] = function () { return this; }, i);
+    function verb(n) { i[n] = o[n] && function (v) { return new Promise(function (resolve, reject) { v = o[n](v), settle(resolve, reject, v.done, v.value); }); }; }
+    function settle(resolve, reject, d, v) { Promise.resolve(v).then(function(v) { resolve({ value: v, done: d }); }, reject); }
+};
 exports.__esModule = true;
 exports.CheckUrls = void 0;
 var superagent_1 = require("superagent");
@@ -84,4 +91,51 @@ var CheckUrls = /** @class */ (function () {
     return CheckUrls;
 }());
 exports.CheckUrls = CheckUrls;
+function main() {
+    var e_1, _a;
+    return __awaiter(this, void 0, void 0, function () {
+        var checkUrls, checkUrls_1, checkUrls_1_1, status_1, e_1_1;
+        return __generator(this, function (_b) {
+            switch (_b.label) {
+                case 0:
+                    checkUrls = new CheckUrls([
+                        'https://nodejsdesignpatterns.com',
+                        'https://example.com',
+                        'https://mustbedownforsurehopefully.com'
+                    ]);
+                    _b.label = 1;
+                case 1:
+                    _b.trys.push([1, 6, 7, 12]);
+                    checkUrls_1 = __asyncValues(checkUrls);
+                    _b.label = 2;
+                case 2: return [4 /*yield*/, checkUrls_1.next()];
+                case 3:
+                    if (!(checkUrls_1_1 = _b.sent(), !checkUrls_1_1.done)) return [3 /*break*/, 5];
+                    status_1 = checkUrls_1_1.value;
+                    console.log(status_1);
+                    _b.label = 4;
+                case 4: return [3 /*break*/, 2];
+                case 5: return [3 /*break*/, 12];
+                case 6:
+                    e_1_1 = _b.sent();
+                    e_1 = { error: e_1_1 };
+                    return [3 /*break*/, 12];
+                case 7:
+                    _b.trys.push([7, , 10, 11]);
+                    if (!(checkUrls_1_1 && !checkUrls_1_1.done && (_a = checkUrls_1["return"]))) return [3 /*break*/, 9];
+                    return [4 /*yield*/, _a.call(checkUrls_1)];
+                case 8:
+                    _b.sent();
+                    _b.label = 9;
+                case 9: return [3 /*break*/, 11];
+                case 10:
+                    if (e_1) throw e_1.error;
+                    return [7 /*endfinally*/];
+                case 11: return [7 /*endfinally*/];
+                case 12: return [2 /*return*/];
+            }
+        });
+    });
+}
+main();
 //# sourceMappingURL=checkUrls.js.map
